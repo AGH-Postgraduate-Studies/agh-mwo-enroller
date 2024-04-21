@@ -18,10 +18,14 @@ public class ParticipantRestController {
 	ParticipantService participantService;
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ResponseEntity<?> getParticipants() {
-		Collection<Participant> participants = participantService.getAll();
+	public ResponseEntity<Collection<Participant>> getAll(
+			@RequestParam(value = "sortBy", defaultValue = "login") String sortBy,
+			@RequestParam(value = "sortOrder", defaultValue = "ASC") String sortOrder,
+			@RequestParam(value = "key", required = false) String key) {
 
-		return new ResponseEntity<Collection<Participant>>(participants, HttpStatus.OK);
+		Collection<Participant> participants = participantService.getAll(sortBy, sortOrder, key);
+
+		return new ResponseEntity<>(participants, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/{login}", method = RequestMethod.GET)
