@@ -33,6 +33,14 @@ public class ParticipantService {
 			}
 		}
 
+		if ("password".equals(sortBy)) {
+			if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+				hql += " ORDER BY password " + sortOrder;
+			} else {
+				hql += " ORDER BY password ASC";
+			}
+		}
+
 		Session session = connector.getSession();
 		Query query = session.createQuery(hql);
 

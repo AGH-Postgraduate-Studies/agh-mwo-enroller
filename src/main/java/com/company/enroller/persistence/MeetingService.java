@@ -33,6 +33,14 @@ public class MeetingService {
 			}
 		}
 
+		if ("description".equals(sortBy)) {
+			if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+				hql += " ORDER BY description " + sortOrder;
+			} else {
+				hql += " ORDER BY description ASC";
+			}
+		}
+
 		Session session = connector.getSession();
 		Query query = session.createQuery(hql);
 
