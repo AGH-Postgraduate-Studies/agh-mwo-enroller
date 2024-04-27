@@ -18,7 +18,7 @@ public class MeetingRestController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<Collection<Meeting>> getAll(
-			@RequestParam(value = "sortBy", defaultValue = "title") String sortBy,
+			@RequestParam(value = "sortBy", defaultValue = "") String sortBy,
 			@RequestParam(value = "sortOrder", defaultValue = "ASC") String sortOrder,
 			@RequestParam(value = "key", required = false) String key) {
 
