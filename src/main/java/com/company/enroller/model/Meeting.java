@@ -51,19 +51,16 @@ public class Meeting {
 		this.id = id;
 	}
 
-	public String setTitle(String title) {
+	public void setTitle(String title) {
 		this.title = title;
-		return title;
 	}
 
-	public String setDescription(String description) {
+	public void setDescription(String description) {
 		this.description = description;
-		return description;
 	}
 
-	public String setDate(String date) {
+	public void setDate(String date) {
 		this.date = date;
-		return date;
 	}
 
 	public void addParticipant(Participant participant) {
